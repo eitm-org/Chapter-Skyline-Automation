@@ -1,0 +1,477 @@
+---
+title: "Report of targets per Run (Skyline)"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    toc: TRUE
+    toc_depth: 1
+
+params:
+  input_rmd: "default"
+  function_script: "default"
+  skyline_report_csv: "default"
+  logo: "default"
+  
+header-includes:
+  - \usepackage{titling}
+  - \pretitle{\begin{center}
+  - \includegraphics[width=1in,height=1in]{`r params$logo`}\LARGE\\}
+  - \posttitle{\end{center}}
+  - \usepackage{fancyhdr}
+  - \pagestyle{fancy}
+  - \fancyhead[C]{Report of Standards per Run (Skyline)}
+  - \fancyfoot[L]{Institute Name}
+
+
+
+  
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, error = TRUE)
+
+# Hook to print output to the console in real-time as the document is being knit
+knitr::knit_hooks$set(output = function(x, options) {
+  message(x)
+  return(x)
+})
+
+#' setting parameters for figures 
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, fig.align = "center", fig.pos='H')
+
+```
+
+
+```{r, include=FALSE}
+# copy the R logo to the current directory
+#file.copy(file.path(R.home("EMI_Logo_Bronze"), "html", "EMI_Logo_Bronze.jpg"), '.')
+```
+
+```{r include=FALSE, message=FALSE}
+library(readxl) 
+library(grid)
+library(gridExtra)
+library(kableExtra)
+library(formattable) 
+library(tibble)
+library(dplyr)
+library(Matrix)
+library(scales)
+library(ggpmisc) 
+library(stringr)
+
+
+```
+
+
+```{r include=FALSE, message=FALSE}
+#' source various functions used throughout the markdown
+source(params$function_script)
+
+print("Functions were read")
+```
+
+
+```{r include=FALSE, message=FALSE}
+##########################################################################
+# reading in the Skyline report
+#########################################################################
+
+#' reading in the skyline report for each raw file
+df_intensity <- read.csv(params$skyline_report_csv,
+                         check.names = FALSE)
+
+#' filtering out M+ isotopes that are a part of the Skyline reports
+df_intensity <- filter(df_intensity, Isotope_Dist_Index == 0)
+
+
+#' the results file exported from skyline has some columns set to characters
+#' this introduces NAs which are ok for now
+df_intensity <- df_intensity %>% mutate(Retention_Time = as.numeric(Retention_Time),
+                                        Area = as.numeric(Area),
+                                        Height = as.numeric(Height),
+                                        PPM = as.numeric(PPM), Fwhm = as.numeric(Fwhm),
+                                        Start_Time = as.numeric(Start_Time),
+                                        End_Time = as.numeric(End_Time),
+                                        `Chromatogram_Precursor_M/Z` = as.numeric(`Chromatogram_Precursor_M/Z`))
+
+#' this filtering ensures we are looking at compounds that have a height measured
+#' also filters out rows with NAs
+df_intensity_filt <- filter(df_intensity, Height > 0)
+
+
+#' calculating the rt drift
+df_intensity_filt <- df_intensity_filt %>% 
+  mutate(rt_drift = Retention_Time - Explicit_Retention_Time)
+
+#' setting filename for report
+filename <- unique(df_intensity_filt$File_Name)
+
+#' setting directory name to store pngs of EICs
+dirname <- str_split(filename[1], "\\.")[[1]][1]
+  
+#' checking to see if directory exists and then creating it if it does not
+if (!dir.exists(dirname)) {
+  dir.create(file.path(dirname), recursive = TRUE)
+}
+
+#' setting the column and ionization information 
+#' for printing in report
+column_ionization <- unique(df_intensity$Column)
+
+```
+
+
+
+
+## File Processed: 
+
+`r filename`
+
+## Column Ionization: 
+
+`r column_ionization`
+
+```{r echo=FALSE, fig.align='left'}
+
+#' this checks if the report generated from Skyline was completely empty after undergoing all the filtering steps in the previous chunk of code
+#' if it was then prints out a table where all rows are red if compounds exist in the df_intensity dataframe
+#' but not in the filtered df_intensity dataframe
+#' since df_intensity depends on all the transitions in Skyline, it will always have all the compounds in the transition list
+#' but then after filtering nothing will remain
+
+if (dim(df_intensity_filt)[1] == 0) {
+  
+  df_intensity %>%
+  select(Molecule_Name, Molecule_Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
+         Precursor_Adduct,	Column, Molecule_List_Name) %>% 
+  kable("latex", col.names = c("Name", "Formula", "Expected RT", "Expected m/z",
+                              "Adduct",	"LC", "Quench/Resuspension QC"), 
+        booktabs = TRUE, caption = "QC Summary Table",
+        align = "c") %>% 
+  kable_styling(latex_options = "striped", font_size = 8) %>% 
+  row_spec(which(df_intensity$Molecule_Name %in% 
+                   setdiff(df_intensity$Molecule_Name, df_intensity_filt$Molecule_Name)), 
+           color = "red")
+
+  
+}
+
+
+```
+
+
+```{r include=FALSE, message=FALSE}
+
+# exits the rendering
+if (dim(df_intensity_filt)[1] == 0) {
+  knitr::knit_exit() # Stop knitting if the condition is true
+}
+
+```
+
+
+```{r include=FALSE, echo=FALSE,message=FALSE, warning=FALSE}
+#' check data before plotting chromatograms
+#' smooth - spline function needs atleast 4 points to work
+#' data wrangling for plotting chromatograms
+#' transform_df_tidyverse function defined in the Skyline_report_functions.R script to split values separeated by , into columns
+#' and then transpose those as rows
+result_tidyverse <- transform_df_tidyverse(df_intensity_filt)
+
+#' needed to be able to join the points with line in ggplot
+result_tidyverse$chr_grp <- 1
+
+#' checks if chr_intensity column has values that are greater than 0
+#' and then counts how many of those values are present, they have to be greater than or equal to 2 for keep_mol to have rows
+keep_mol <- result_tidyverse %>%
+  group_by(Molecule_Name) %>%
+  summarize(positive_count = sum(chr_intensity > 0, na.rm = TRUE)) %>%
+  filter(positive_count >= 2) %>% 
+  ungroup()
+
+# filtering for molecules that have atleast two points along the chromatogram
+keep_mol <- as.data.frame(keep_mol)
+df_intensity_filt <- filter(df_intensity_filt, Molecule_Name %in% keep_mol$Molecule_Name)
+
+#' if keep_mol has no rows meaning all the measured molecules have less than 2 points along the chromatogram
+#' it creates a random image called empty - this is needed since nextflow pipeline expects a png output
+if (dim(keep_mol)[1] == 0) {
+ 
+  png(paste0(dirname, "/empty.png"), res = 300, width = 8, height = 8, units = "in")
+  plot(df_intensity$Explicit_Retention_Time,df_intensity$Retention_Time)
+  dev.off()
+  
+}
+```
+
+
+```{r echo=FALSE, fig.align='left'}
+
+#' if keep_mol has no rows meaning all the measured molecules have less than 2 points along the chromatogram
+#' it will print out a table where the molecules are colored red if not found in the filtered dataframe: df_intensity_filt
+#' Since df_intensity_filt was filtered using keep_mol, in the previous chunk of code, this should reflect molecules that do not have more than 2 points along the chromatogram 
+if (dim(keep_mol)[1] == 0) {
+  
+  df_intensity %>%
+  select(Molecule_Name, Molecule_Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
+         Precursor_Adduct,	Column, Molecule_List_Name) %>% 
+  kable("latex", col.names = c("Name", "Formula", "Expected RT", "Expected m/z",
+                              "Adduct",	"LC", "Quench/Resuspension QC"), 
+        booktabs = TRUE, caption = "QC Summary Table",
+        align = "c") %>% 
+  kable_styling(latex_options = "striped", font_size = 8) %>% 
+  row_spec(which(df_intensity$Molecule_Name %in% 
+                   setdiff(df_intensity$Molecule_Name, df_intensity_filt$Molecule_Name)), 
+           color = "red")
+
+  
+}
+
+
+
+```
+
+
+```{r include=FALSE, echo=FALSE,message=FALSE, warning=FALSE}
+
+#' if keep_mol has no rows meaning all the measured molecules have less than 2 points along the chromatogram
+#' exit rendering here
+if (dim(keep_mol)[1] == 0) {
+  knitr::knit_exit() # Stop knitting if the condition is true
+}
+
+```
+
+
+```{r include=FALSE, echo=FALSE,message=FALSE, warning=FALSE}
+
+#' make a new list of molecules that have more than 2 points along the chromatogram- filtered for already with keep_mol
+#' 
+compounds_to_plot_EICs <- unique(df_intensity_filt$Molecule_Name)
+
+#' store the results of peak shape scores here
+peakshape_results_splinefit <- data.frame(Molecule_Name = character(0),
+                                     tailing = numeric(0), asymmetry = numeric(0)) 
+
+#' for each compound in the new list of molecules created earlier
+#' pull out the start and end times
+#' as well as the data frame for that compound
+#' and then apply the tailing and asymmetry functions to that dataframe
+#' also plot the EICs for that compound and store in the directory created earlier which has the filename
+for (compound in compounds_to_plot_EICs) {
+  chr_start <- unique((result_tidyverse %>% filter(Molecule_Name == compound))$Start_Time)
+  chr_end <- unique((result_tidyverse %>% filter(Molecule_Name == compound))$End_Time)
+  
+  y_integration <- result_tidyverse %>% filter(Molecule_Name == compound) %>% 
+    filter(chr_time >= chr_start & chr_time <= chr_end)
+  
+  filename <- (result_tidyverse %>% filter(Molecule_Name == compound) %>% 
+    filter(chr_time >= chr_start & chr_time <= chr_end))$File_Name
+  
+  tailing_value <- calculate_tailingFactor(y_integration)
+  asymmetry_value <- calculate_asymmetry(y_integration)
+  
+  peakshape_results_splinefit <- rbind(peakshape_results_splinefit, 
+                                  data.frame(Molecule_Name = compound,
+                                             tailing = tailing_value, asymmetry= asymmetry_value))
+  
+  png(paste0(dirname, "/EIC_", compound, ".png"), res = 300, width = 8, height = 8, units = "in")
+  print(result_tidyverse %>% filter(Molecule_Name == compound) %>% 
+    ggplot(., aes(x = chr_time, y = chr_intensity, group = chr_grp)) +
+    geom_line() +
+    geom_ribbon(data = y_integration,aes(x = chr_time,
+                                         ymin = 0, ymax = chr_intensity), fill = "grey70") +
+    theme_classic() +
+    ggtitle(filename) +
+    labs(x = "Retention Time (min)", y = "Intensity"))
+  dev.off()
+}
+
+peakshape_results_splinefit <- as.data.frame(peakshape_results_splinefit)
+
+#' join the peakshape results to the filtered dataframe
+df_intensity_filt <- left_join(df_intensity_filt, peakshape_results_splinefit)
+
+```
+
+
+```{r echo=FALSE,message=FALSE, warning=FALSE}
+
+#' sorting the filtered dataframe so that compounds are in increasing order of mas
+
+df_intensity_filt <- df_intensity_filt[order(df_intensity_filt$`Chromatogram_Precursor_M/Z`),]
+
+#' normalize by D10 Leucine if D10 was quantified
+#' if not, keep intensity to raw values - this might change later
+#' store a normalization value as yes/no to use later for plotting
+
+if ("D10-Leucine" %in% df_intensity_filt$Molecule_Name) {
+  D10_Leu_intensity <- (filter(df_intensity_filt, Molecule_Name == "D10-Leucine"))$Height
+  df_intensity_filt$Intensity_D10Norm <- df_intensity_filt$Height/D10_Leu_intensity
+  
+  normalization <- "yes"
+}else{
+  normalization <- "no"
+}
+
+#' paste molecule name and mass seperated by a line
+df_intensity_filt$Name_mz <- paste(df_intensity_filt$Molecule_Name, 
+                                   df_intensity_filt$`Chromatogram_Precursor_M/Z`, sep = " \n")
+
+#' paste molecule name and retention time values seperated by a line
+df_intensity_filt$Name_RT <- paste(df_intensity_filt$Molecule_Name, df_intensity_filt$Explicit_Retention_Time,
+                                   sep = " \n")
+
+#' factor order the two new columns created earlier
+#' they should be in the increasing order of mass set earlier
+df_intensity_filt$Name_mz <- factor(df_intensity_filt$Name_mz, 
+                                          levels = df_intensity_filt$Name_mz, ordered = TRUE)
+
+df_intensity_filt$Name_RT <- factor(df_intensity_filt$Name_RT, 
+                                    levels = df_intensity_filt$Name_RT, ordered = TRUE)
+
+```
+
+
+\newpage
+
+# Intensity
+Individual peak Intensity normalized to D10-Leucine peak intensity.
+
+
+```{r echo=FALSE, fig.dim = c(6, 4),dpi=300, fig.align='left'}
+
+#' depending on the normalization value set earlier either plot normalized or raw intensities
+
+if (normalization == "yes") {
+  ggplot(df_intensity_filt, aes(x = Name_mz, y = Intensity_D10Norm)) +
+  geom_point(size = 4) +
+  theme_classic() +
+  geom_hline(yintercept = 1, col = "blue") +
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle  = 45, hjust = 1))+
+        #plot.background = element_rect(colour = "grey", fill=NA, linewidth=0.5)) +
+  labs(x = "", y = "Intensity/D10-Leucine")
+}else{
+  
+  ggplot(df_intensity_filt, aes(x = Name_mz, y = Height)) +
+  geom_point(size = 4) +
+  theme_classic() +
+  geom_hline(yintercept = 1, col = "blue") +
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle  = 45, hjust = 1))+
+        #plot.background = element_rect(colour = "grey", fill=NA, linewidth=0.5)) +
+  labs(x = "", y = "Intensity")
+  
+  
+}
+
+
+
+
+
+```
+
+
+# Mass tolerance (ppm)
+Mass tolerance (ppm) = ((Theoretical m/z - Observed m/z)/Theoretical m/z)*1E+6
+
+
+```{r echo=FALSE, fig.dim = c(6, 4),dpi=300, fig.align='left'}
+ggplot(df_intensity_filt, aes(x = Name_mz, y = PPM)) +
+  geom_point(size = 4) +
+  theme_classic() +
+  geom_hline(yintercept = 0, col = "blue") +
+  geom_hline(yintercept = 8) +
+  geom_hline(yintercept = -8) +
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle  = 45, hjust = 1))+
+        #plot.background = element_rect(colour = "grey", fill=NA, linewidth=0.5)) +
+  labs(x = "")
+
+```
+
+
+
+# RT drift
+Peak Retention Time Drift calculated as (observed retention time - Expected retention time of compound)
+
+
+```{r echo=FALSE, fig.dim = c(6, 4),dpi=300, fig.align='left'}
+
+ggplot(df_intensity_filt, aes(x = Name_RT, y = rt_drift)) +
+  geom_point(size = 4) +
+  theme_classic() +
+  geom_hline(yintercept = 0, col = "blue") +
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle  = 45, hjust = 1))+
+        #plot.background = element_rect(colour = "grey", fill=NA, linewidth=0.5))+
+  labs(x = "", y = "RT drift (min)")
+```
+
+\newpage
+
+# Peak Shape Scores
+**FWHM** = width of peak in retention time space at 50% peak height
+
+**Tailing factor** = (C+D)/2C (ideal = 1)
+
+**Asymmetry factor** = B/A (ideal = 1)
+
+
+```{r echo=FALSE, fig.dim = c(6, 4),dpi=300, fig.align='left'}
+ggplot(df_intensity_filt, aes(x = Name_mz, y = Fwhm)) +
+  geom_point(size = 4) +
+  theme_classic() +
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle  = 45, hjust = 1))+
+        #plot.background = element_rect(colour = "grey", fill=NA, linewidth=0.5))+
+  labs(x = "", y = "FWHM (min)")
+
+ggplot(df_intensity_filt, aes(x = Name_mz, y = tailing)) +
+  geom_point(size = 4) +
+  theme_classic() +
+  geom_hline(yintercept = 1, col = "blue") +
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle  = 45, hjust = 1))+
+        #plot.background = element_rect(colour = "grey", fill=NA, linewidth=0.5))+
+  labs(x = "", y = "Tailing factor")
+
+ggplot(df_intensity_filt, aes(x = Name_mz, y = asymmetry)) +
+  geom_point(size = 4) +
+  theme_classic() +
+  geom_hline(yintercept = 1, col = "blue") +
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle  = 45, hjust = 1))+
+        #plot.background = element_rect(colour = "grey", fill=NA, linewidth=0.5))+
+  labs(x = "", y = "Asymmetry factor")
+```
+
+\newpage
+
+# QC Summary Table
+
+```{r echo=FALSE, fig.align='left'}
+
+df_intensity %>%
+  select(Molecule_Name, Molecule_Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
+         Precursor_Adduct,	Column, Molecule_List_Name) %>% 
+  kable("latex", col.names = c("Name", "Formula", "Expected RT", "Expected m/z",
+                              "Adduct",	"LC", "Quench/Resuspension QC"), 
+        booktabs = TRUE, caption = "QC Summary Table",
+        align = "c") %>% 
+  kable_styling(latex_options = "striped", font_size = 8) %>% 
+  row_spec(which(df_intensity$Molecule_Name %in% 
+                   setdiff(df_intensity$Molecule_Name, df_intensity_filt$Molecule_Name)), 
+           color = "red")
+```
+
+
+\textcolor{red}{Targets that were not detected in samples}.
+
+
+
+
+

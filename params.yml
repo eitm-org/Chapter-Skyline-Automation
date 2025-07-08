@@ -1,0 +1,44 @@
+#
+# params.yml
+#
+
+#
+# To use pipeline parameters from a yaml file like this one:
+#   nextflow run /path/to/mspipe -params-file /path/to/params.yml
+#
+# note the extra quoting of strings to make Nextflow happy :(
+#
+
+# raw files are stored in folder called 'raw_files' to be processed in the Nextflow pipeline
+# this folder is present in the directory where nextflow command is invoked
+
+rawFiles: "raw_files/*.{d,raw}"
+
+# here we specify the name of the results folder where outputs of Nextflow pipeline are stored
+# this folder gets created in the directory where Nextflow command is invoked
+
+outputDirectory: "./results_CIL" 
+
+# In this example we are processing data with only MS1 information; see details at https://proteowizard.sourceforge.io/ for more information on msconvert
+# for msconvertArgs3: this argument should be changed to '"peakPicking true 1-2"' for data with MS/MS information
+
+msconvertArgs: "--mzML"
+msconvertArgs2: "--filter"
+msconvertArgs3: '"peakPicking true 1-"'  
+
+# skyline processing of Hilic ESI- data
+# skylineArgs2: this argument points to .sky document and should be changed based on what is being analyzed
+# notice the .sky file is stored in a folder called scripts.
+
+skylineArgs: "Quantification_results" # the name of report created when creating the .sky document within Skyline software
+skylineArgs2: "./scripts/HilicNeg_CIL_Skyline_transitionlist_20250411.sky"
+
+
+# individual report input parameters
+# notice these files are stored in a folder called scripts
+
+skyline_rmd_input: "./scripts/Run_QC_Skyline_nextflow_individual_files_input.R" # input for the R markdown script; can be viewed/edited in R studio
+rmd_script: "./scripts/Run_QC_Skyline_nextflow_individual_files.Rmd" # the R markdown script that generates the report; can be viewed/edited in R studio
+function_script: "./scripts/Skyline_report_functions.R" # R functions which are sourced in the R markdown; can be viewed/edited in R studio
+logo: "./scripts/logo.jpg" # any image/logo to add in the header of the pdf report
+

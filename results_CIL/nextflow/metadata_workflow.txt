@@ -1,0 +1,40 @@
+runName: silly_saha
+scriptId: 3cc5d352f8becebd5fcf090e9a3cdbaf
+scriptFile: /Users/kdabke/Documents/chapter_automation/main.nf
+scriptName: main.nf
+repository: null
+commitId: null
+revision: null
+start: 2025-07-08T10:31:28.019156-07:00
+complete: 2025-07-08T10:31:58.301474-07:00
+duration: 30.3s
+container: [:]
+commandLine: nextflow run main.nf -params-file params.yml
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@7f0766ef, enable:nextflow.NextflowMeta$Features@1e56bc9b, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: true
+projectDir: /Users/kdabke/Documents/chapter_automation
+projectName: main.nf
+launchDir: /Users/kdabke/Documents/chapter_automation
+outputDir: /Users/kdabke/Documents/chapter_automation/results
+workDir: /Users/kdabke/Documents/chapter_automation/work
+homeDir: /Users/kdabke
+userName: kdabke
+exitStatus: 0
+errorMessage: null
+errorReport: null
+profile: standard
+sessionId: dc7efbf4-7ce0-4731-a277-b53035cb9af2
+resume: false
+stubRun: false
+preview: false
+containerEngine: docker
+wave: WaveMetadata(enabled:false)
+fusion: FusionMetadata(enabled:false, version:null)
+configFiles: [/Users/kdabke/Documents/chapter_automation/nextflow.config]
+stats: WorkflowStats[succeededCount=7; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2m 24s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
+manifest: nextflow.config.Manifest@31ab4859
+failOnIgnore: false
+session: nextflow.Session@448ade1
+onCompleteActions: [Script_79c83ad3955b31b3$_runScript_closure6@5ca22e19]
+onErrorActions: [Script_79c83ad3955b31b3$_runScript_closure7@29d3d0fb]
+log: Logger[nextflow.script.WorkflowMetadata]

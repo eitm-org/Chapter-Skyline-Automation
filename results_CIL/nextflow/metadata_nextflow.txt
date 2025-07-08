@@ -1,0 +1,13 @@
+DSL1_EOL_MESSAGE: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
+DSL_DECLARATION: (?m)^\s*(nextflow\.(preview|enable)\.dsl\s*=\s*(\d))\s*(;?\s*)?(;?/{2}.*)?$
+DSL1_INPUT: (?m)input:\s*(tuple|file|path|val|env|stdin)\b.*\s.*\bfrom\b.+$
+DSL1_OUTPUT: (?m)output:\s*(tuple|file|path|val|env|stdout)\b.*\s.*\binto\b.+$
+DSL2_WORKFLOW: \s+workflow(?!\s*\.)\b.*\s*\{[^}]*}
+ignoreWarnDsl2: false
+version: 24.10.5
+build: 5935
+timestamp: 04-03-2025 17:55 UTC
+preview: nextflow.NextflowMeta$Preview@7f0766ef
+enable: nextflow.NextflowMeta$Features@1e56bc9b
+log: Logger[nextflow.NextflowMeta]
+instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@7f0766ef, enable:nextflow.NextflowMeta$Features@1e56bc9b, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
