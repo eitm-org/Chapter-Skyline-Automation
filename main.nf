@@ -42,9 +42,9 @@ workflow processRawFiles
 
     sky_ch = Channel.fromPath(params.skylineArgs2)    
     report_ch = Channel.value(params.skylineArgs)
+    transition_ch = Channel.fromPath(params.skylineArgs3)
 
-
-    skylineChannel = run_SkylineProcess(sky_ch.first(), rawFileChannel, report_ch)
+    skylineChannel = run_SkylineProcess(sky_ch.first(), rawFileChannel, transition_ch.first(), report_ch)
     skylineChannel.view {"Skyline output: " + it}
 
 
@@ -54,11 +54,10 @@ workflow processRawFiles
     input_ch = Channel.fromPath(params.skyline_rmd_input)
     markdown_ch = Channel.fromPath(params.rmd_script) 
     function_ch = Channel.fromPath(params.function_script)
-    //RT_ch = Channel.fromPath(params.rt_input)
-    //formula_ch = Channel.fromPath(params.formula_input)
+    formula_ch = Channel.fromPath(params.molecular_formula)
     logo_ch = Channel.fromPath(params.logo)
 
-    run_individual_ReportProcess(input_ch.first(), markdown_ch.first(), skylineChannel, function_ch.first(),  logo_ch.first())
+    run_individual_ReportProcess(input_ch.first(), markdown_ch.first(), skylineChannel, function_ch.first(), formula_ch.first(),  logo_ch.first())
 
 
 }

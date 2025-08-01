@@ -1,0 +1,19 @@
+﻿Molecule Name,Molecule List Name,Molecule Formula,Precursor Adduct,Explicit Retention Time
+13C3-Alanine,Quench QC,C3H7NO2,[M3C13-H],5.8
+13C6-Leucine,Quench QC,C6H13NO2,[M6C13-H],6.5
+13C6-Phenylalanine,Quench QC,C9H11NO2,[M6C13-H],2.8
+13C6-Tyrosine,Quench QC,C9H11NO3,[M6C13-H],4.8
+13C11-Tryptophan,Quench QC,C11H12N2O2,[M11C13-H],3.5
+13C4-Succinate,Resuspension QC,C4H6O4,[M4C13-H],8.1
+13C6-Benzoate,Resuspension QC,C7H6O2,[M6C13-H],5.3
+D10-Leucine,Resuspension QC,C6H13NO2,[M10D-H],6.5
+13C8-Octanoate,Resuspension QC,C8H16O2,[M8C13-H],1.75
+13C3-Citrate,Resuspension QC,C6H8O7,[M3C13-H],8.6
+13C18-Stearate,Resuspension QC,C18H36O2,[M18C13-H],0.8
+13C3-Alanine,Quench QC,C3H7NO2,[M3C13+H],5.7
+13C6-Leucine,Quench QC,C6H13NO2,[M6C13+H],6.5
+13C6-Phenylalanine,Quench QC,C9H11NO2,[M6C13+H],2.7
+13C6-Tyrosine,Quench QC,C9H11NO3,[M6C13+H],4.75
+13C11-Tryptophan,Quench QC,C11H12N2O2,[M11C13+H],3.3
+D10-Leucine,Resuspension QC,C6H13NO2,[M10D+H],6.5
+13C3-Caffeine,Resuspension QC,C8H10N4O2,[M3C13+H],0.7

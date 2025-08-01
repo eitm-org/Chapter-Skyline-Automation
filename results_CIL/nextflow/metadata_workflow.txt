@@ -1,40 +1,414 @@
-runName: silly_saha
-scriptId: 3cc5d352f8becebd5fcf090e9a3cdbaf
-scriptFile: /Users/kdabke/Documents/chapter_automation/main.nf
+runName: astonishing_plateau
+scriptId: 33294b8a22a7a1bdb35a34daefcec3fb
+scriptFile: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
 scriptName: main.nf
 repository: null
 commitId: null
 revision: null
-start: 2025-07-08T10:31:28.019156-07:00
-complete: 2025-07-08T10:31:58.301474-07:00
-duration: 30.3s
+start: 2025-07-31T12:47:06.095142-07:00
+complete: 2025-07-31T12:47:06.670800-07:00
+duration: 575ms
 container: [:]
 commandLine: nextflow run main.nf -params-file params.yml
-nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@7f0766ef, enable:nextflow.NextflowMeta$Features@1e56bc9b, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
-success: true
-projectDir: /Users/kdabke/Documents/chapter_automation
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@191ec193, enable:nextflow.NextflowMeta$Features@6321a5aa, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: false
+projectDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
 projectName: main.nf
-launchDir: /Users/kdabke/Documents/chapter_automation
-outputDir: /Users/kdabke/Documents/chapter_automation/results
-workDir: /Users/kdabke/Documents/chapter_automation/work
+launchDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+outputDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results
+workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work
 homeDir: /Users/kdabke
 userName: kdabke
-exitStatus: 0
-errorMessage: null
-errorReport: null
+exitStatus: null
+errorMessage: No such property: first for class: java.lang.String
+errorReport: No such property: first for class: java.lang.String
 profile: standard
-sessionId: dc7efbf4-7ce0-4731-a277-b53035cb9af2
+sessionId: f59dec08-ae90-4402-86a5-4f6add0a120b
 resume: false
 stubRun: false
 preview: false
 containerEngine: docker
 wave: WaveMetadata(enabled:false)
 fusion: FusionMetadata(enabled:false, version:null)
-configFiles: [/Users/kdabke/Documents/chapter_automation/nextflow.config]
-stats: WorkflowStats[succeededCount=7; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2m 24s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
-manifest: nextflow.config.Manifest@31ab4859
+configFiles: [/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config]
+stats: WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+manifest: nextflow.config.Manifest@18d610e1
 failOnIgnore: false
-session: nextflow.Session@448ade1
-onCompleteActions: [Script_79c83ad3955b31b3$_runScript_closure6@5ca22e19]
-onErrorActions: [Script_79c83ad3955b31b3$_runScript_closure7@29d3d0fb]
+session: nextflow.Session@65f3e805
+onCompleteActions: [Script_a385bc5c7f5de61d$_runScript_closure6@528e5e38]
+onErrorActions: [Script_a385bc5c7f5de61d$_runScript_closure7@16391278]
+log: Logger[nextflow.script.WorkflowMetadata]
+runName: happy_ekeblad
+scriptId: 33294b8a22a7a1bdb35a34daefcec3fb
+scriptFile: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
+scriptName: main.nf
+repository: null
+commitId: null
+revision: null
+start: 2025-07-31T12:48:09.757590-07:00
+complete: 2025-07-31T12:48:10.266433-07:00
+duration: 508ms
+container: [:]
+commandLine: nextflow run main.nf -params-file params.yml
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@4f3c7808, enable:nextflow.NextflowMeta$Features@4b4969ea, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: false
+projectDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+projectName: main.nf
+launchDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+outputDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results
+workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work
+homeDir: /Users/kdabke
+userName: kdabke
+exitStatus: null
+errorMessage: No such property: first for class: java.lang.String
+errorReport: No such property: first for class: java.lang.String
+profile: standard
+sessionId: bb88ffbd-5930-4914-b4cc-a5ff7e373352
+resume: false
+stubRun: false
+preview: false
+containerEngine: docker
+wave: WaveMetadata(enabled:false)
+fusion: FusionMetadata(enabled:false, version:null)
+configFiles: [/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config]
+stats: WorkflowStats[succeededCount=0; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=0ms; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=0; peakCpus=0; peakMemory=0; ]
+manifest: nextflow.config.Manifest@5c0e2ec
+failOnIgnore: false
+session: nextflow.Session@569348e1
+onCompleteActions: [Script_a385bc5c7f5de61d$_runScript_closure6@4fa8bebb]
+onErrorActions: [Script_a385bc5c7f5de61d$_runScript_closure7@7d3c22a5]
+log: Logger[nextflow.script.WorkflowMetadata]
+runName: tiny_babbage
+scriptId: 3bdb4a3fc0c60288b24097fdd675cc5a
+scriptFile: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
+scriptName: main.nf
+repository: null
+commitId: null
+revision: null
+start: 2025-07-31T12:50:58.686742-07:00
+complete: 2025-07-31T12:51:24.098692-07:00
+duration: 25.4s
+container: [:]
+commandLine: nextflow run main.nf -params-file params.yml
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@1eb85a47, enable:nextflow.NextflowMeta$Features@ca7e37f, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: false
+projectDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+projectName: main.nf
+launchDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+outputDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results
+workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work
+homeDir: /Users/kdabke
+userName: kdabke
+exitStatus: 1
+errorMessage: WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+
+
+processing file: Run_QC_Skyline_nextflow_individual_files.Rmd
+1/35                   
+2/35 [setup]           
+3/35                   
+4/35 [unnamed-chunk-1] 
+5/35                   
+6/35 [unnamed-chunk-2] 
+7/35                   
+8/35 [unnamed-chunk-3] 
+## [1] "Functions were read"
+
+9/35                   
+10/35 [unnamed-chunk-4] 
+11/35                   
+12/35 [unnamed-chunk-5] 
+13/35                   
+14/35 [unnamed-chunk-6] 
+15/35                   
+16/35 [unnamed-chunk-7] 
+17/35                   
+18/35 [unnamed-chunk-8] 
+19/35                   
+20/35 [unnamed-chunk-9] 
+21/35                   
+22/35 [unnamed-chunk-10]
+Error in `smooth.spline()`:
+! need at least four unique 'x' values
+Backtrace:
+  1. rmarkdown::render(...)
+  2. knitr::knit(knit_input, knit_output, envir = envir, quiet = quiet)
+  3. knitr:::process_file(text, output)
+  6. knitr:::process_group(group)
+  7. knitr:::call_block(x)
+     ...
+ 14. base::withRestarts(...)
+ 15. base (local) withRestartList(expr, restarts)
+ 16. base (local) withOneRestart(withRestartList(expr, restarts[-nr]), restarts[[nr]])
+ 17. base (local) docall(restart$handler, restartArgs)
+ 19. evaluate (local) fun(base::quote(`<smplErrr>`))
+
+Quitting from lines 260-308 [unnamed-chunk-10] (Run_QC_Skyline_nextflow_individual_files.Rmd)
+Execution halted
+errorReport: Error executing process > 'processRawFiles:run_individual_ReportProcess (2)'
+
+Caused by:
+  Process `processRawFiles:run_individual_ReportProcess (2)` terminated with an error exit status (1)
+
+
+Command executed:
+
+  Rscript Run_QC_Skyline_nextflow_individual_files_input.R Run_QC_Skyline_nextflow_individual_files.Rmd QC-2_Blank-2_Pos_20241212_A_EC_JM-Breath-2_23.csv Skyline_report_functions.R Molecule_Formula_all15.csv logo.jpg ./results_CIL
+
+Command exit status:
+  1
+
+Command output:
+  1/35                   
+  2/35 [setup]           
+  3/35                   
+  4/35 [unnamed-chunk-1] 
+  5/35                   
+  6/35 [unnamed-chunk-2] 
+  7/35                   
+  8/35 [unnamed-chunk-3] 
+  9/35                   
+  10/35 [unnamed-chunk-4] 
+  11/35                   
+  12/35 [unnamed-chunk-5] 
+  13/35                   
+  14/35 [unnamed-chunk-6] 
+  15/35                   
+  16/35 [unnamed-chunk-7] 
+  17/35                   
+  18/35 [unnamed-chunk-8] 
+  19/35                   
+  20/35 [unnamed-chunk-9] 
+  21/35                   
+  22/35 [unnamed-chunk-10]
+
+Command error:
+  WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+  
+  
+  processing file: Run_QC_Skyline_nextflow_individual_files.Rmd
+  1/35                   
+  2/35 [setup]           
+  3/35                   
+  4/35 [unnamed-chunk-1] 
+  5/35                   
+  6/35 [unnamed-chunk-2] 
+  7/35                   
+  8/35 [unnamed-chunk-3] 
+  ## [1] "Functions were read"
+  
+  9/35                   
+  10/35 [unnamed-chunk-4] 
+  11/35                   
+  12/35 [unnamed-chunk-5] 
+  13/35                   
+  14/35 [unnamed-chunk-6] 
+  15/35                   
+  16/35 [unnamed-chunk-7] 
+  17/35                   
+  18/35 [unnamed-chunk-8] 
+  19/35                   
+  20/35 [unnamed-chunk-9] 
+  21/35                   
+  22/35 [unnamed-chunk-10]
+  Error in `smooth.spline()`:
+  ! need at least four unique 'x' values
+  Backtrace:
+    1. rmarkdown::render(...)
+    2. knitr::knit(knit_input, knit_output, envir = envir, quiet = quiet)
+    3. knitr:::process_file(text, output)
+    6. knitr:::process_group(group)
+    7. knitr:::call_block(x)
+       ...
+   14. base::withRestarts(...)
+   15. base (local) withRestartList(expr, restarts)
+   16. base (local) withOneRestart(withRestartList(expr, restarts[-nr]), restarts[[nr]])
+   17. base (local) docall(restart$handler, restartArgs)
+   19. evaluate (local) fun(base::quote(`<smplErrr>`))
+  
+  Quitting from lines 260-308 [unnamed-chunk-10] (Run_QC_Skyline_nextflow_individual_files.Rmd)
+  Execution halted
+
+Work dir:
+  /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/ea/ae9eb039eedb47bab5d421752507df
+
+Container:
+  kruttika39/xcms_newbuild:tinytex-install
+
+Tip: you can try to figure out what's wrong by changing to the process work dir and showing the script file named `.command.sh`
+profile: standard
+sessionId: 7ed45249-a947-41af-ac95-159170295017
+resume: false
+stubRun: false
+preview: false
+containerEngine: docker
+wave: WaveMetadata(enabled:false)
+fusion: FusionMetadata(enabled:false, version:null)
+configFiles: [/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config]
+stats: WorkflowStats[succeededCount=5; failedCount=1; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=1; retriesCount=0; abortedCount=0; succeedDuration=1m 37s; failedDuration=6.1s; cachedDuration=0ms;loadCpus=2; loadMemory=4 GB; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
+manifest: nextflow.config.Manifest@17d76ebb
+failOnIgnore: false
+session: nextflow.Session@414b2df5
+onCompleteActions: [Script_2aa2e86926002b70$_runScript_closure6@40b31a16]
+onErrorActions: [Script_2aa2e86926002b70$_runScript_closure7@25fa6889]
+log: Logger[nextflow.script.WorkflowMetadata]
+runName: condescending_varahamihira
+scriptId: e76a5210ed4600beb7268f3a1abfe8ce
+scriptFile: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
+scriptName: main.nf
+repository: null
+commitId: null
+revision: null
+start: 2025-07-31T12:56:00.517844-07:00
+complete: 2025-07-31T12:56:28.419795-07:00
+duration: 27.9s
+container: [:]
+commandLine: nextflow run main.nf -params-file params.yml
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@2fde9469, enable:nextflow.NextflowMeta$Features@1ecf0ac6, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: true
+projectDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+projectName: main.nf
+launchDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+outputDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results
+workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work
+homeDir: /Users/kdabke
+userName: kdabke
+exitStatus: 0
+errorMessage: null
+errorReport: null
+profile: standard
+sessionId: 551f4b79-1615-44e0-aed3-8950cdbe2fbb
+resume: false
+stubRun: false
+preview: false
+containerEngine: docker
+wave: WaveMetadata(enabled:false)
+fusion: FusionMetadata(enabled:false, version:null)
+configFiles: [/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config]
+stats: WorkflowStats[succeededCount=7; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2m 3s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
+manifest: nextflow.config.Manifest@763b0996
+failOnIgnore: false
+session: nextflow.Session@418f0534
+onCompleteActions: [Script_0c36a0c80860a84c$_runScript_closure6@386e9fd8]
+onErrorActions: [Script_0c36a0c80860a84c$_runScript_closure7@618f627b]
+log: Logger[nextflow.script.WorkflowMetadata]
+runName: cheesy_engelbart
+scriptId: e76a5210ed4600beb7268f3a1abfe8ce
+scriptFile: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
+scriptName: main.nf
+repository: null
+commitId: null
+revision: null
+start: 2025-07-31T12:59:10.650240-07:00
+complete: 2025-07-31T12:59:38.832186-07:00
+duration: 28.2s
+container: [:]
+commandLine: nextflow run main.nf -params-file params.yml
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@447521e, enable:nextflow.NextflowMeta$Features@2fde9469, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: true
+projectDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+projectName: main.nf
+launchDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+outputDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results
+workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work
+homeDir: /Users/kdabke
+userName: kdabke
+exitStatus: 0
+errorMessage: null
+errorReport: null
+profile: standard
+sessionId: 9c48a7cb-7ab1-4efd-87e1-17d5e296938f
+resume: false
+stubRun: false
+preview: false
+containerEngine: docker
+wave: WaveMetadata(enabled:false)
+fusion: FusionMetadata(enabled:false, version:null)
+configFiles: [/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config]
+stats: WorkflowStats[succeededCount=7; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2m 4s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
+manifest: nextflow.config.Manifest@1f7336b2
+failOnIgnore: false
+session: nextflow.Session@3dfd7eaa
+onCompleteActions: [Script_0c36a0c80860a84c$_runScript_closure6@4c030fe1]
+onErrorActions: [Script_0c36a0c80860a84c$_runScript_closure7@347123dc]
+log: Logger[nextflow.script.WorkflowMetadata]
+runName: naughty_jang
+scriptId: e76a5210ed4600beb7268f3a1abfe8ce
+scriptFile: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
+scriptName: main.nf
+repository: null
+commitId: null
+revision: null
+start: 2025-07-31T13:01:35.638921-07:00
+complete: 2025-07-31T13:02:00.644111-07:00
+duration: 25s
+container: [:]
+commandLine: nextflow run main.nf -params-file params.yml
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@447521e, enable:nextflow.NextflowMeta$Features@2fde9469, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: true
+projectDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+projectName: main.nf
+launchDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+outputDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results
+workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work
+homeDir: /Users/kdabke
+userName: kdabke
+exitStatus: 0
+errorMessage: null
+errorReport: null
+profile: standard
+sessionId: 01d76af2-42dc-464d-8718-f0c4b5cad181
+resume: false
+stubRun: false
+preview: false
+containerEngine: docker
+wave: WaveMetadata(enabled:false)
+fusion: FusionMetadata(enabled:false, version:null)
+configFiles: [/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config]
+stats: WorkflowStats[succeededCount=7; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2m 12s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
+manifest: nextflow.config.Manifest@5403431a
+failOnIgnore: false
+session: nextflow.Session@3dfd7eaa
+onCompleteActions: [Script_0c36a0c80860a84c$_runScript_closure6@ab327c]
+onErrorActions: [Script_0c36a0c80860a84c$_runScript_closure7@3d798e76]
+log: Logger[nextflow.script.WorkflowMetadata]
+runName: sharp_boltzmann
+scriptId: e76a5210ed4600beb7268f3a1abfe8ce
+scriptFile: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
+scriptName: main.nf
+repository: null
+commitId: null
+revision: null
+start: 2025-07-31T13:04:29.195250-07:00
+complete: 2025-07-31T13:04:54.332723-07:00
+duration: 25.1s
+container: [:]
+commandLine: nextflow run main.nf -params-file params.yml
+nextflow: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@2fde9469, enable:nextflow.NextflowMeta$Features@1ecf0ac6, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+success: true
+projectDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+projectName: main.nf
+launchDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation
+outputDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results
+workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work
+homeDir: /Users/kdabke
+userName: kdabke
+exitStatus: 0
+errorMessage: null
+errorReport: null
+profile: standard
+sessionId: 95f3f659-b78e-4655-96fe-b8db24d50b64
+resume: false
+stubRun: false
+preview: false
+containerEngine: docker
+wave: WaveMetadata(enabled:false)
+fusion: FusionMetadata(enabled:false, version:null)
+configFiles: [/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config]
+stats: WorkflowStats[succeededCount=7; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=2m 14s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
+manifest: nextflow.config.Manifest@3d798e76
+failOnIgnore: false
+session: nextflow.Session@418f0534
+onCompleteActions: [Script_0c36a0c80860a84c$_runScript_closure6@763b0996]
+onErrorActions: [Script_0c36a0c80860a84c$_runScript_closure7@386e9fd8]
 log: Logger[nextflow.script.WorkflowMetadata]

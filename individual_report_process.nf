@@ -10,6 +10,7 @@ process run_individual_ReportProcess
     path markdown_ch
     path skylineReport_ch
     path function_ch
+    path formula_ch
     path logo_ch
 
     publishDir "${params.outputDirectory}/Individual_QC_reports", mode: 'copy'
@@ -22,7 +23,7 @@ process run_individual_ReportProcess
 
     """
 
-    Rscript $input_ch $markdown_ch $skylineReport_ch $function_ch $logo_ch ${params.outputDirectory}
+    Rscript $input_ch $markdown_ch $skylineReport_ch $function_ch $formula_ch $logo_ch ${params.outputDirectory}
 
     """
 

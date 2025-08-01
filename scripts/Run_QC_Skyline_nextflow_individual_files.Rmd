@@ -8,8 +8,9 @@ output:
 
 params:
   input_rmd: "default"
-  function_script: "default"
   skyline_report_csv: "default"
+  function_script: "default"
+  molecular_formula: "default"
   logo: "default"
   
 header-includes:
@@ -81,9 +82,22 @@ print("Functions were read")
 #' reading in the skyline report for each raw file
 df_intensity <- read.csv(params$skyline_report_csv,
                          check.names = FALSE)
+df_intensity <- df_intensity[df_intensity$File_Name != "",]
 
 #' filtering out M+ isotopes that are a part of the Skyline reports
 df_intensity <- filter(df_intensity, Isotope_Dist_Index == 0)
+
+df_intensity$ionization_mode <- ifelse(grepl("-", df_intensity$Precursor_Adduct), "ESI-", "ESI+")
+
+
+
+#' reading in the formula csv
+#' this contains the formulas for each internal standard
+#' need this since skyline has a specific way of reporting its formula for heavy labelled compounds
+#' and this gets joined to the skyline report file
+Molecule_Formula <- read.csv(params$molecular_formula)
+df_intensity <- left_join(df_intensity, Molecule_Formula)
+
 
 
 #' the results file exported from skyline has some columns set to characters
@@ -118,7 +132,7 @@ if (!dir.exists(dirname)) {
 
 #' setting the column and ionization information 
 #' for printing in report
-column_ionization <- unique(df_intensity$Column)
+column_ionization <- unique(df_intensity$ionization_mode)
 
 ```
 
@@ -144,10 +158,10 @@ column_ionization <- unique(df_intensity$Column)
 if (dim(df_intensity_filt)[1] == 0) {
   
   df_intensity %>%
-  select(Molecule_Name, Molecule_Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
-         Precursor_Adduct,	Column, Molecule_List_Name) %>% 
-  kable("latex", col.names = c("Name", "Formula", "Expected RT", "Expected m/z",
-                              "Adduct",	"LC", "Quench/Resuspension QC"), 
+  select(Molecule_Name, Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
+         Precursor_Adduct,	ionization_mode, Molecule_List_Name) %>% 
+  kable("latex", col.names = c("Name", "Molecular Formula", "Expected RT", "Expected m/z",
+                              "Adduct",	"Ionization", "Quench/Resuspension QC"), 
         booktabs = TRUE, caption = "QC Summary Table",
         align = "c") %>% 
   kable_styling(latex_options = "striped", font_size = 8) %>% 
@@ -187,9 +201,11 @@ result_tidyverse$chr_grp <- 1
 #' and then counts how many of those values are present, they have to be greater than or equal to 2 for keep_mol to have rows
 keep_mol <- result_tidyverse %>%
   group_by(Molecule_Name) %>%
+  filter(chr_time >= (unique(Start_Time)-0.05) & chr_time <= (unique(End_Time)+0.05)) %>% 
   summarize(positive_count = sum(chr_intensity > 0, na.rm = TRUE)) %>%
   filter(positive_count >= 2) %>% 
   ungroup()
+
 
 # filtering for molecules that have atleast two points along the chromatogram
 keep_mol <- as.data.frame(keep_mol)
@@ -215,10 +231,10 @@ if (dim(keep_mol)[1] == 0) {
 if (dim(keep_mol)[1] == 0) {
   
   df_intensity %>%
-  select(Molecule_Name, Molecule_Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
-         Precursor_Adduct,	Column, Molecule_List_Name) %>% 
-  kable("latex", col.names = c("Name", "Formula", "Expected RT", "Expected m/z",
-                              "Adduct",	"LC", "Quench/Resuspension QC"), 
+  select(Molecule_Name, Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
+         Precursor_Adduct,	ionization_mode, Molecule_List_Name) %>% 
+  kable("latex", col.names = c("Name", "Molecular Formula", "Expected RT", "Expected m/z",
+                              "Adduct",	"Ionization", "Quench/Resuspension QC"), 
         booktabs = TRUE, caption = "QC Summary Table",
         align = "c") %>% 
   kable_styling(latex_options = "striped", font_size = 8) %>% 
@@ -265,7 +281,7 @@ for (compound in compounds_to_plot_EICs) {
   chr_end <- unique((result_tidyverse %>% filter(Molecule_Name == compound))$End_Time)
   
   y_integration <- result_tidyverse %>% filter(Molecule_Name == compound) %>% 
-    filter(chr_time >= chr_start & chr_time <= chr_end)
+    filter(chr_time >= (chr_start-0.05) & chr_time <= (chr_end+0.05))
   
   filename <- (result_tidyverse %>% filter(Molecule_Name == compound) %>% 
     filter(chr_time >= chr_start & chr_time <= chr_end))$File_Name
@@ -456,10 +472,10 @@ ggplot(df_intensity_filt, aes(x = Name_mz, y = asymmetry)) +
 ```{r echo=FALSE, fig.align='left'}
 
 df_intensity %>%
-  select(Molecule_Name, Molecule_Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
-         Precursor_Adduct,	Column, Molecule_List_Name) %>% 
-  kable("latex", col.names = c("Name", "Formula", "Expected RT", "Expected m/z",
-                              "Adduct",	"LC", "Quench/Resuspension QC"), 
+  select(Molecule_Name, Formula, Explicit_Retention_Time,	`Chromatogram_Precursor_M/Z`,	
+         Precursor_Adduct,	ionization_mode, Molecule_List_Name) %>% 
+  kable("latex", col.names = c("Name", "Molecular Formula", "Expected RT", "Expected m/z",
+                              "Adduct",	"Ionization", "Quench/Resuspension QC"), 
         booktabs = TRUE, caption = "QC Summary Table",
         align = "c") %>% 
   kable_styling(latex_options = "striped", font_size = 8) %>% 

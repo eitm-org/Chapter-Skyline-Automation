@@ -26,12 +26,14 @@ msconvertArgs: "--mzML"
 msconvertArgs2: "--filter"
 msconvertArgs3: '"peakPicking true 1-"'  
 
-# skyline processing of Hilic ESI- data
+# skyline processing of Hilic ESI- and ESI+ data
 # skylineArgs2: this argument points to .sky document and should be changed based on what is being analyzed
 # notice the .sky file is stored in a folder called scripts.
+# skylineArgs3: this argument points to the csv list of targeted compounds that can contain both positive or negative mode adducts.
 
 skylineArgs: "Quantification_results" # the name of report created when creating the .sky document within Skyline software
-skylineArgs2: "./scripts/HilicNeg_CIL_Skyline_transitionlist_20250411.sky"
+skylineArgs2: "./scripts/CIL_Skyline_test_20250731.sky"
+skylineArgs3: "./scripts/Hilic_transitionList.csv"
 
 
 # individual report input parameters
@@ -40,5 +42,6 @@ skylineArgs2: "./scripts/HilicNeg_CIL_Skyline_transitionlist_20250411.sky"
 skyline_rmd_input: "./scripts/Run_QC_Skyline_nextflow_individual_files_input.R" # input for the R markdown script; can be viewed/edited in R studio
 rmd_script: "./scripts/Run_QC_Skyline_nextflow_individual_files.Rmd" # the R markdown script that generates the report; can be viewed/edited in R studio
 function_script: "./scripts/Skyline_report_functions.R" # R functions which are sourced in the R markdown; can be viewed/edited in R studio
+molecular_formula: "./scripts/Molecule_Formula_all15.csv"
 logo: "./scripts/logo.jpg" # any image/logo to add in the header of the pdf report
 

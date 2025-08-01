@@ -8,6 +8,7 @@ process run_SkylineProcess
     input:
     path sky_ch
     path rawFile
+    path transition_ch
     val report_ch
 
     publishDir "${params.outputDirectory}/skyline-report", mode: 'copy'
@@ -21,7 +22,7 @@ process run_SkylineProcess
     """
  
 
-    wine SkylineCmd --in=$sky_ch --import-file=$rawFile --report-name=$report_ch --report-file=${baseName}.csv
+    wine SkylineCmd --in=$sky_ch --import-file=$rawFile --import-transition-list=$transition_ch --report-name=$report_ch --report-file=${baseName}.csv
 
 
     """
