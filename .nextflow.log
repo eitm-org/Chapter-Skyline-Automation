@@ -1,0 +1,108 @@
+Aug-11 15:00:42.890 [main] DEBUG nextflow.cli.Launcher - $> nextflow run main.nf -params-file params.yml
+Aug-11 15:00:42.955 [main] DEBUG nextflow.cli.CmdRun - N E X T F L O W  ~  version 24.10.5
+Aug-11 15:00:43.001 [main] DEBUG nextflow.plugin.PluginsFacade - Setting up plugin manager > mode=prod; embedded=false; plugins-dir=/Users/kdabke/.nextflow/plugins; core-plugins: nf-amazon@2.9.2,nf-azure@1.10.2,nf-cloudcache@0.4.2,nf-codecommit@0.2.2,nf-console@1.1.4,nf-google@1.15.4,nf-tower@1.9.3,nf-wave@1.7.4
+Aug-11 15:00:43.015 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Enabled plugins: []
+Aug-11 15:00:43.016 [main] INFO  o.pf4j.DefaultPluginStatusProvider - Disabled plugins: []
+Aug-11 15:00:43.017 [main] INFO  org.pf4j.DefaultPluginManager - PF4J version 3.12.0 in 'deployment' mode
+Aug-11 15:00:43.025 [main] INFO  org.pf4j.AbstractPluginManager - No plugins
+Aug-11 15:00:43.041 [main] DEBUG nextflow.config.ConfigBuilder - Found config local: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config
+Aug-11 15:00:43.042 [main] DEBUG nextflow.config.ConfigBuilder - Parsing config file: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/nextflow.config
+Aug-11 15:00:43.060 [main] DEBUG n.secret.LocalSecretsProvider - Secrets store: /Users/kdabke/.nextflow/secrets/store.json
+Aug-11 15:00:43.061 [main] DEBUG nextflow.secret.SecretsLoader - Discovered secrets providers: [nextflow.secret.LocalSecretsProvider@7a2e0858] - activable => nextflow.secret.LocalSecretsProvider@7a2e0858
+Aug-11 15:00:43.084 [main] DEBUG nextflow.config.ConfigBuilder - Applying config profile: `standard`
+Aug-11 15:00:43.361 [main] DEBUG nextflow.cli.CmdRun - Applied DSL=2 by global default
+Aug-11 15:00:43.370 [main] DEBUG nextflow.cli.CmdRun - Launching `main.nf` [happy_lalande] DSL2 - revision: e76a5210ed
+Aug-11 15:00:43.372 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins default=[]
+Aug-11 15:00:43.372 [main] DEBUG nextflow.plugin.PluginsFacade - Plugins resolved requirement=[]
+Aug-11 15:00:43.407 [main] DEBUG nextflow.Session - Session UUID: 1daf89b8-aa45-46a0-8d69-7e921e95ea3f
+Aug-11 15:00:43.407 [main] DEBUG nextflow.Session - Run name: happy_lalande
+Aug-11 15:00:43.407 [main] DEBUG nextflow.Session - Executor pool size: 8
+Aug-11 15:00:43.412 [main] DEBUG nextflow.file.FilePorter - File porter settings maxRetries=3; maxTransfers=50; pollTimeout=null
+Aug-11 15:00:43.414 [main] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'FileTransfer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-11 15:00:43.481 [main] DEBUG nextflow.cli.CmdRun - 
+  Version: 24.10.5 build 5935
+  Created: 04-03-2025 17:55 UTC (09:55 PDT)
+  System: Mac OS X 15.6
+  Runtime: Groovy 4.0.23 on OpenJDK 64-Bit Server VM 17.0.10+7
+  Encoding: UTF-8 (UTF-8)
+  Process: 36747@LT-MM96HJPXCD [10.20.0.103]
+  CPUs: 8 - Mem: 24 GB (626.9 MB) - Swap: 0 (0)
+Aug-11 15:00:43.493 [main] DEBUG nextflow.Session - Work-dir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work [Mac OS X]
+Aug-11 15:00:43.494 [main] DEBUG nextflow.Session - Script base path does not exist or is not a directory: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/bin
+Aug-11 15:00:43.499 [main] DEBUG nextflow.executor.ExecutorFactory - Extension executors providers=[]
+Aug-11 15:00:43.503 [main] DEBUG nextflow.Session - Observer factory: DefaultObserverFactory
+Aug-11 15:00:43.521 [main] DEBUG nextflow.cache.CacheFactory - Using Nextflow cache factory: nextflow.cache.DefaultCacheFactory
+Aug-11 15:00:43.527 [main] DEBUG nextflow.util.CustomThreadPool - Creating default thread pool > poolSize: 9; maxThreads: 1000
+Aug-11 15:00:43.564 [main] DEBUG nextflow.Session - Session start
+Aug-11 15:00:43.565 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow started -- trace file: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/results_CIL/nextflow/trace.txt
+Aug-11 15:00:43.756 [main] DEBUG nextflow.script.ScriptRunner - > Launching execution
+Aug-11 15:00:43.918 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-11 15:00:43.918 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-11 15:00:43.921 [main] DEBUG nextflow.executor.Executor - [warm up] executor > local
+Aug-11 15:00:43.924 [main] DEBUG n.processor.LocalPollingMonitor - Creating local task monitor for executor 'local' > cpus=8; memory=24 GB; capacity=8; pollInterval=100ms; dumpInterval=5m
+Aug-11 15:00:43.926 [main] DEBUG n.processor.TaskPollingMonitor - >>> barrier register (monitor: local)
+Aug-11 15:00:43.983 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-11 15:00:43.983 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-11 15:00:43.991 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-11 15:00:43.991 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-11 15:00:44.002 [main] DEBUG nextflow.executor.ExecutorFactory - << taskConfig executor: null
+Aug-11 15:00:44.002 [main] DEBUG nextflow.executor.ExecutorFactory - >> processorType: 'local'
+Aug-11 15:00:44.004 [main] DEBUG nextflow.Session - Workflow process names [dsl2]: msconvertVersion, processRawFiles:msconvertProcess, msconvertProcess, processRawFiles:run_individual_ReportProcess, reportVersions:msconvertVersion, run_SkylineProcess, processRawFiles:run_SkylineProcess, run_individual_ReportProcess
+Aug-11 15:00:44.004 [main] DEBUG nextflow.Session - Igniting dataflow network (13)
+Aug-11 15:00:44.005 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > reportVersions:msconvertVersion
+Aug-11 15:00:44.008 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > processRawFiles:msconvertProcess
+Aug-11 15:00:44.009 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > processRawFiles:run_SkylineProcess
+Aug-11 15:00:44.010 [PathVisitor-1] DEBUG nextflow.file.PathVisitor - files for syntax: glob; folder: raw_files/; pattern: *.{d,raw}; options: [type:any]
+Aug-11 15:00:44.011 [main] DEBUG nextflow.processor.TaskProcessor - Starting process > processRawFiles:run_individual_ReportProcess
+Aug-11 15:00:44.011 [main] DEBUG nextflow.script.ScriptRunner - Parsed script files:
+  Script_5b0bfedca37cd209: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/./individual_report_process.nf
+  Script_b697fbb649ee0928: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/./skyline_process.nf
+  Script_3a44bb013287c7b7: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/./msconvert.nf
+  Script_0c36a0c80860a84c: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/main.nf
+Aug-11 15:00:44.012 [main] DEBUG nextflow.script.ScriptRunner - > Awaiting termination 
+Aug-11 15:00:44.012 [main] DEBUG nextflow.Session - Session await
+Aug-11 15:00:44.098 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:00:44.099 [Task submitter] INFO  nextflow.Session - [c4/71016d] Submitted process > processRawFiles:run_SkylineProcess (2)
+Aug-11 15:00:44.113 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:00:44.113 [Task submitter] INFO  nextflow.Session - [1f/977e04] Submitted process > reportVersions:msconvertVersion
+Aug-11 15:00:44.120 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:00:44.121 [Task submitter] INFO  nextflow.Session - [dc/723525] Submitted process > processRawFiles:run_SkylineProcess (1)
+Aug-11 15:00:44.127 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:00:44.128 [Task submitter] INFO  nextflow.Session - [bb/5a68fa] Submitted process > processRawFiles:run_SkylineProcess (3)
+Aug-11 15:00:53.019 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 1; name: reportVersions:msconvertVersion; status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/1f/977e0496d902c09903b1b5dc3cdcab]
+Aug-11 15:00:53.020 [Task monitor] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'TaskFinalizer' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-11 15:00:53.046 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:00:53.047 [Task submitter] INFO  nextflow.Session - [0b/7ef7a3] Submitted process > processRawFiles:msconvertProcess (3)
+Aug-11 15:01:01.198 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 6; name: processRawFiles:run_SkylineProcess (3); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/bb/5a68fa05896bcd5886199541b46b52]
+Aug-11 15:01:01.211 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:01:01.211 [Task submitter] INFO  nextflow.Session - [dd/72a461] Submitted process > processRawFiles:msconvertProcess (2)
+Aug-11 15:01:01.212 [TaskFinalizer-2] DEBUG nextflow.util.ThreadPoolBuilder - Creating thread pool 'PublishDir' minSize=10; maxSize=24; workQueue=LinkedBlockingQueue[-1]; allowCoreThreadTimeout=false
+Aug-11 15:01:01.254 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 4; name: processRawFiles:run_SkylineProcess (2); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/c4/71016dffc736d2f950e14e5f01cf44]
+Aug-11 15:01:01.263 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:01:01.263 [Task submitter] INFO  nextflow.Session - [b5/da3b2c] Submitted process > processRawFiles:msconvertProcess (1)
+Aug-11 15:01:01.473 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 3; name: processRawFiles:run_SkylineProcess (1); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/dc/7235255c5565f6a93ca74b1883f6fc]
+Aug-11 15:01:01.482 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:01:01.482 [Task submitter] INFO  nextflow.Session - [75/6a336d] Submitted process > processRawFiles:run_individual_ReportProcess (1)
+Aug-11 15:01:02.342 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 7; name: processRawFiles:msconvertProcess (3); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/0b/7ef7a30849ca5f62adb2b7cf32cba4]
+Aug-11 15:01:02.351 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:01:02.351 [Task submitter] INFO  nextflow.Session - [7b/81d22f] Submitted process > processRawFiles:run_individual_ReportProcess (2)
+Aug-11 15:01:15.039 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 2; name: processRawFiles:msconvertProcess (1); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/b5/da3b2c5aff05d32fe3276207601d1d]
+Aug-11 15:01:15.065 [Task submitter] DEBUG n.executor.local.LocalTaskHandler - Launch cmd line: /bin/bash -ue .command.run
+Aug-11 15:01:15.065 [Task submitter] INFO  nextflow.Session - [31/30ad75] Submitted process > processRawFiles:run_individual_ReportProcess (3)
+Aug-11 15:01:15.071 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 5; name: processRawFiles:msconvertProcess (2); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/dd/72a461718dd9040e6dcc2511be45bf]
+Aug-11 15:01:18.643 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 8; name: processRawFiles:run_individual_ReportProcess (1); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/75/6a336db7c23437f8b6251585c6d33a]
+Aug-11 15:01:18.787 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 9; name: processRawFiles:run_individual_ReportProcess (2); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/7b/81d22f5d7f5963156e262f340769ac]
+Aug-11 15:01:24.672 [Task monitor] DEBUG n.processor.TaskPollingMonitor - Task completed > TaskHandler[id: 10; name: processRawFiles:run_individual_ReportProcess (3); status: COMPLETED; exit: 0; error: -; workDir: /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/work/31/30ad751eb3c93c85ad99715406d85b]
+Aug-11 15:01:24.684 [main] DEBUG nextflow.Session - Session await > all processes finished
+Aug-11 15:01:24.775 [Task monitor] DEBUG n.processor.TaskPollingMonitor - <<< barrier arrives (monitor: local) - terminating tasks monitor poll loop
+Aug-11 15:01:24.775 [main] DEBUG nextflow.Session - Session await > all barriers passed
+Aug-11 15:01:24.779 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'TaskFinalizer' shutdown completed (hard=false)
+Aug-11 15:01:24.781 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'PublishDir' shutdown completed (hard=false)
+Aug-11 15:01:24.966 [main] DEBUG n.trace.WorkflowStatsObserver - Workflow completed > WorkflowStats[succeededCount=10; failedCount=0; ignoredCount=0; cachedCount=0; pendingCount=0; submittedCount=0; runningCount=0; retriesCount=0; abortedCount=0; succeedDuration=4m 6s; failedDuration=0ms; cachedDuration=0ms;loadCpus=0; loadMemory=0; peakRunning=4; peakCpus=8; peakMemory=16 GB; ]
+Aug-11 15:01:24.966 [main] DEBUG nextflow.trace.TraceFileObserver - Workflow completed -- saving trace file
+Aug-11 15:01:24.967 [main] DEBUG nextflow.trace.ReportObserver - Workflow completed -- rendering execution report
+Aug-11 15:01:25.656 [main] DEBUG nextflow.trace.TimelineObserver - Workflow completed -- rendering execution timeline
+Aug-11 15:01:25.775 [main] WARN  nextflow.dag.GraphvizRenderer - Graphviz is required to render the execution DAG in the given format -- See http://www.graphviz.org for more info.
+Aug-11 15:01:25.910 [main] DEBUG nextflow.cache.CacheDB - Closing CacheDB done
+Aug-11 15:01:25.955 [main] DEBUG nextflow.util.ThreadPoolManager - Thread pool 'FileTransfer' shutdown completed (hard=false)
+Aug-11 15:01:25.956 [main] DEBUG nextflow.script.ScriptRunner - > Execution complete -- Goodbye

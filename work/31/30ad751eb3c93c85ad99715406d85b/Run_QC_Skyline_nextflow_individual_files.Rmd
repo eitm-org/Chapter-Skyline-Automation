@@ -1,0 +1,1 @@
+/Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/scripts/Run_QC_Skyline_nextflow_individual_files.Rmd

@@ -1,0 +1,10 @@
+WARNING: The requested image's platform (linux/amd64) does not match the detected host platform (linux/arm64/v8) and no specific platform was requested
+
+
+processing file: Run_QC_Skyline_nextflow_individual_files.Rmd
+## [1] "Functions were read"
+
+output file: Run_QC_Skyline_nextflow_individual_files.knit.md
+
+
+Output created: QC-2_Blank-2_20241212_A_EC_JM-Breath-2_03.pdf

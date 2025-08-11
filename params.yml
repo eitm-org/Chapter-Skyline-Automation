@@ -33,7 +33,7 @@ msconvertArgs3: '"peakPicking true 1-"'
 
 skylineArgs: "Quantification_results" # the name of report created when creating the .sky document within Skyline software
 skylineArgs2: "./scripts/CIL_Skyline_test_20250731.sky"
-skylineArgs3: "./scripts/Hilic_transitionList.csv"
+skylineArgs3: "./scripts/Hilic_CIL_transitionList.csv"
 
 
 # individual report input parameters

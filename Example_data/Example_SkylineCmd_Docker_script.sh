@@ -3,7 +3,7 @@
 
 
 docker run -it --rm \
-  -v /Users/kdabke/Documents/Working_Skyline_nextflow_pipeline/Skyline_DockerOnly_testing:/data \
+  -v path/to/folder/to/mount/in/docker:/data \
   proteowizard/pwiz-skyline-i-agree-to-the-vendor-licenses \
   wine SkylineCmd \
   --new=test2.sky \
@@ -21,14 +21,14 @@ docker run -it --rm \
 
 
 docker run -it --rm \
-  -v /path/to/working/directory:/data \
+  -v path/to/folder/to/mount/in/docker:/data \
   proteowizard/pwiz-skyline-i-agree-to-the-vendor-licenses \
   wine SkylineCmd \
   --dir=/data \
   --in=test2.sky \
   --import-file=/data/raw_file_to_analyze.d \
-  --import-transition-list=/data/Hilic_transitionList.csv \
-  --report-name="Molecule Transition Results" \
+  --import-transition-list=/data/Hilic_CIL_transitionList.csv \
+  --report-name="Molecule Transition Results" \ ## default report option in Skyline
   --report-file=/data/output/raw_file_to_analyze.csv
   
 

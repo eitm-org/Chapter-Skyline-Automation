@@ -354,7 +354,7 @@ df_intensity_filt$Name_RT <- factor(df_intensity_filt$Name_RT,
 \newpage
 
 # Intensity
-Individual peak Intensity normalized to D10-Leucine peak intensity.
+Individual peak Intensity normalized to D10-Leucine peak intensity if D10-Leucine peak was measured.
 
 
 ```{r echo=FALSE, fig.dim = c(6, 4),dpi=300, fig.align='left'}
@@ -392,7 +392,8 @@ if (normalization == "yes") {
 
 
 # Mass tolerance (ppm)
-Mass tolerance (ppm) = ((Theoretical m/z - Observed m/z)/Theoretical m/z)*1E+6
+Output provided as part of Skyline report.
+
 
 
 ```{r echo=FALSE, fig.dim = c(6, 4),dpi=300, fig.align='left'}
@@ -430,7 +431,7 @@ ggplot(df_intensity_filt, aes(x = Name_RT, y = rt_drift)) +
 \newpage
 
 # Peak Shape Scores
-**FWHM** = width of peak in retention time space at 50% peak height
+**FWHM** = width of peak in retention time space at 50% peak height (Output provided as part of Skyline report.)
 
 **Tailing factor** = (C+D)/2C (ideal = 1)
 

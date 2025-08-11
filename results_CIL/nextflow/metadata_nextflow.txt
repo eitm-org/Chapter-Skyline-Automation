@@ -7,10 +7,10 @@ ignoreWarnDsl2: false
 version: 24.10.5
 build: 5935
 timestamp: 04-03-2025 17:55 UTC
-preview: nextflow.NextflowMeta$Preview@191ec193
-enable: nextflow.NextflowMeta$Features@6321a5aa
+preview: nextflow.NextflowMeta$Preview@5175d9ad
+enable: nextflow.NextflowMeta$Features@b06d46d
 log: Logger[nextflow.NextflowMeta]
-instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@191ec193, enable:nextflow.NextflowMeta$Features@6321a5aa, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@5175d9ad, enable:nextflow.NextflowMeta$Features@b06d46d, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
 DSL1_EOL_MESSAGE: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
 DSL_DECLARATION: (?m)^\s*(nextflow\.(preview|enable)\.dsl\s*=\s*(\d))\s*(;?\s*)?(;?/{2}.*)?$
 DSL1_INPUT: (?m)input:\s*(tuple|file|path|val|env|stdin)\b.*\s.*\bfrom\b.+$
@@ -20,10 +20,10 @@ ignoreWarnDsl2: false
 version: 24.10.5
 build: 5935
 timestamp: 04-03-2025 17:55 UTC
-preview: nextflow.NextflowMeta$Preview@4f3c7808
-enable: nextflow.NextflowMeta$Features@4b4969ea
+preview: nextflow.NextflowMeta$Preview@5403907
+enable: nextflow.NextflowMeta$Features@5175d9ad
 log: Logger[nextflow.NextflowMeta]
-instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@4f3c7808, enable:nextflow.NextflowMeta$Features@4b4969ea, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@5403907, enable:nextflow.NextflowMeta$Features@5175d9ad, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
 DSL1_EOL_MESSAGE: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
 DSL_DECLARATION: (?m)^\s*(nextflow\.(preview|enable)\.dsl\s*=\s*(\d))\s*(;?\s*)?(;?/{2}.*)?$
 DSL1_INPUT: (?m)input:\s*(tuple|file|path|val|env|stdin)\b.*\s.*\bfrom\b.+$
@@ -33,10 +33,10 @@ ignoreWarnDsl2: false
 version: 24.10.5
 build: 5935
 timestamp: 04-03-2025 17:55 UTC
-preview: nextflow.NextflowMeta$Preview@1eb85a47
-enable: nextflow.NextflowMeta$Features@ca7e37f
+preview: nextflow.NextflowMeta$Preview@7dbae40
+enable: nextflow.NextflowMeta$Features@34f7b44f
 log: Logger[nextflow.NextflowMeta]
-instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@1eb85a47, enable:nextflow.NextflowMeta$Features@ca7e37f, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@7dbae40, enable:nextflow.NextflowMeta$Features@34f7b44f, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
 DSL1_EOL_MESSAGE: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
 DSL_DECLARATION: (?m)^\s*(nextflow\.(preview|enable)\.dsl\s*=\s*(\d))\s*(;?\s*)?(;?/{2}.*)?$
 DSL1_INPUT: (?m)input:\s*(tuple|file|path|val|env|stdin)\b.*\s.*\bfrom\b.+$
@@ -46,46 +46,7 @@ ignoreWarnDsl2: false
 version: 24.10.5
 build: 5935
 timestamp: 04-03-2025 17:55 UTC
-preview: nextflow.NextflowMeta$Preview@2fde9469
-enable: nextflow.NextflowMeta$Features@1ecf0ac6
+preview: nextflow.NextflowMeta$Preview@743d0d44
+enable: nextflow.NextflowMeta$Features@35563e4c
 log: Logger[nextflow.NextflowMeta]
-instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@2fde9469, enable:nextflow.NextflowMeta$Features@1ecf0ac6, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
-DSL1_EOL_MESSAGE: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
-DSL_DECLARATION: (?m)^\s*(nextflow\.(preview|enable)\.dsl\s*=\s*(\d))\s*(;?\s*)?(;?/{2}.*)?$
-DSL1_INPUT: (?m)input:\s*(tuple|file|path|val|env|stdin)\b.*\s.*\bfrom\b.+$
-DSL1_OUTPUT: (?m)output:\s*(tuple|file|path|val|env|stdout)\b.*\s.*\binto\b.+$
-DSL2_WORKFLOW: \s+workflow(?!\s*\.)\b.*\s*\{[^}]*}
-ignoreWarnDsl2: false
-version: 24.10.5
-build: 5935
-timestamp: 04-03-2025 17:55 UTC
-preview: nextflow.NextflowMeta$Preview@447521e
-enable: nextflow.NextflowMeta$Features@2fde9469
-log: Logger[nextflow.NextflowMeta]
-instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@447521e, enable:nextflow.NextflowMeta$Features@2fde9469, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
-DSL1_EOL_MESSAGE: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
-DSL_DECLARATION: (?m)^\s*(nextflow\.(preview|enable)\.dsl\s*=\s*(\d))\s*(;?\s*)?(;?/{2}.*)?$
-DSL1_INPUT: (?m)input:\s*(tuple|file|path|val|env|stdin)\b.*\s.*\bfrom\b.+$
-DSL1_OUTPUT: (?m)output:\s*(tuple|file|path|val|env|stdout)\b.*\s.*\binto\b.+$
-DSL2_WORKFLOW: \s+workflow(?!\s*\.)\b.*\s*\{[^}]*}
-ignoreWarnDsl2: false
-version: 24.10.5
-build: 5935
-timestamp: 04-03-2025 17:55 UTC
-preview: nextflow.NextflowMeta$Preview@447521e
-enable: nextflow.NextflowMeta$Features@2fde9469
-log: Logger[nextflow.NextflowMeta]
-instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@447521e, enable:nextflow.NextflowMeta$Features@2fde9469, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
-DSL1_EOL_MESSAGE: Nextflow DSL1 is no longer supported — Update your script to DSL2, or use Nextflow 22.10.x or earlier
-DSL_DECLARATION: (?m)^\s*(nextflow\.(preview|enable)\.dsl\s*=\s*(\d))\s*(;?\s*)?(;?/{2}.*)?$
-DSL1_INPUT: (?m)input:\s*(tuple|file|path|val|env|stdin)\b.*\s.*\bfrom\b.+$
-DSL1_OUTPUT: (?m)output:\s*(tuple|file|path|val|env|stdout)\b.*\s.*\binto\b.+$
-DSL2_WORKFLOW: \s+workflow(?!\s*\.)\b.*\s*\{[^}]*}
-ignoreWarnDsl2: false
-version: 24.10.5
-build: 5935
-timestamp: 04-03-2025 17:55 UTC
-preview: nextflow.NextflowMeta$Preview@2fde9469
-enable: nextflow.NextflowMeta$Features@1ecf0ac6
-log: Logger[nextflow.NextflowMeta]
-instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@2fde9469, enable:nextflow.NextflowMeta$Features@1ecf0ac6, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
+instance: nextflow.NextflowMeta(version:24.10.5, build:5935, timestamp:04-03-2025 17:55 UTC, preview:nextflow.NextflowMeta$Preview@743d0d44, enable:nextflow.NextflowMeta$Features@35563e4c, dsl2:true, strictModeEnabled:false, moduleBinariesEnabled:false)
