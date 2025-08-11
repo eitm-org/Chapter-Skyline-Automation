@@ -1,0 +1,7 @@
+This repository contains examnple scripts, Dockerfile and other excel sheets for reference to generate a pdf report of internal standards using Skyline.
+
+The pipeline uses Nextflow, docker and R scripts to process raw ".d/.raw" mass spectrometry files and convert them into per sample reports.
+
+Please see examples of outputs from the pipeline in folder: ./results_CIL
+
+
