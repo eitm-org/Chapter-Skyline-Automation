@@ -114,25 +114,68 @@ df_intensity <- df_intensity %>% mutate(Retention_Time = as.numeric(Retention_Ti
 #' also filters out rows with NAs
 df_intensity_filt <- filter(df_intensity, Height > 0)
 
-
-#' calculating the rt drift
-df_intensity_filt <- df_intensity_filt %>% 
-  mutate(rt_drift = Retention_Time - Explicit_Retention_Time)
-
-#' setting filename for report
-filename <- unique(df_intensity_filt$File_Name)
-
-#' setting directory name to store pngs of EICs
-dirname <- str_split(filename[1], "\\.")[[1]][1]
+if (dim(df_intensity_filt)[1] == 0) {
   
-#' checking to see if directory exists and then creating it if it does not
-if (!dir.exists(dirname)) {
-  dir.create(file.path(dirname), recursive = TRUE)
+  
+  #' setting filename for report
+  filename <- unique(df_intensity$File_Name)
+  #' setting directory name to store pngs of EICs
+  dirname <- str_split(filename[1], "\\.")[[1]][1]
+  #' checking to see if directory exists and then creating it if it does not
+  if (!dir.exists(dirname)) {
+    dir.create(file.path(dirname), recursive = TRUE)
+    }
+  #' setting the column and ionization information 
+  #' for printing in report
+  column_ionization <- unique(df_intensity$ionization_mode)
+ 
+  
+  
+}else{
+  
+  #' calculating the rt drift
+  df_intensity_filt <- df_intensity_filt %>% 
+    mutate(rt_drift = Retention_Time - Explicit_Retention_Time)
+
+  #' setting filename for report
+  filename <- unique(df_intensity_filt$File_Name)
+
+  #' setting directory name to store pngs of EICs
+  dirname <- str_split(filename[1], "\\.")[[1]][1]
+  
+  #' checking to see if directory exists and then creating it if it does not
+  if (!dir.exists(dirname)) {
+    dir.create(file.path(dirname), recursive = TRUE)
+    }
+
+  #' setting the column and ionization information 
+  #' for printing in report
+  column_ionization <- unique(df_intensity$ionization_mode)
+  
+  
+  
+  
+}
+```
+
+
+```{r include=FALSE, message=FALSE}
+
+#' this checks if the report generated from Skyline was completely empty after undergoing all the filtering steps in the previous chunk of code
+#' if it was then prints out a table where all rows are red if compounds exist in the df_intensity dataframe
+#' but not in the filtered df_intensity dataframe
+#' since df_intensity depends on all the transitions in Skyline, it will always have all the compounds in the transition list
+#' but then after filtering nothing will remain
+
+
+if (dim(df_intensity_filt)[1] == 0) {
+ 
+  png(paste0(dirname, "/empty.png"), res = 300, width = 8, height = 8, units = "in")
+  plot(df_intensity$Explicit_Retention_Time,df_intensity$Retention_Time)
+  dev.off()
+  
 }
 
-#' setting the column and ionization information 
-#' for printing in report
-column_ionization <- unique(df_intensity$ionization_mode)
 
 ```
 
@@ -154,6 +197,8 @@ column_ionization <- unique(df_intensity$ionization_mode)
 #' but not in the filtered df_intensity dataframe
 #' since df_intensity depends on all the transitions in Skyline, it will always have all the compounds in the transition list
 #' but then after filtering nothing will remain
+
+
 
 if (dim(df_intensity_filt)[1] == 0) {
   

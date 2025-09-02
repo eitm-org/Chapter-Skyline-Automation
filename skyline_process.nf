@@ -20,7 +20,8 @@ process run_SkylineProcess
 
     def baseName = rawFile.baseName
     """
- 
+    # symbolic link handling: make temp copy (fix from lehtiolab/nf-msconvert)    
+    ${rawFile.isDirectory() ?  "mv ${rawFile} tmpdir && cp -rL tmpdir ${rawFile}" : ''} 
 
     wine SkylineCmd --in=$sky_ch --import-file=$rawFile --import-transition-list=$transition_ch --report-name=$report_ch --report-file=${baseName}.csv
 

@@ -22,8 +22,8 @@ outputDirectory: "./results_CIL"
 # In this example we are processing data with only MS1 information; see details at https://proteowizard.sourceforge.io/ for more information on msconvert
 # for msconvertArgs3: this argument should be changed to '"peakPicking true 1-2"' for data with MS/MS information
 
-msconvertArgs: "--mzML"
-msconvertArgs2: "--filter"
+msconvertArgs: '"--mzML"'
+msconvertArgs2: '"--filter"'
 msconvertArgs3: '"peakPicking true 1-"'  
 
 # skyline processing of Hilic ESI- and ESI+ data
