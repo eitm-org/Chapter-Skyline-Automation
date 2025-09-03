@@ -1,0 +1,29 @@
+<data_settings document_guid="ed6fbe53-fc61-4a64-be35-92a2550924de" audit_logging="true">
+      <annotation name="Column" targets="transition" type="text" />
+      <annotation name="Ionization" targets="transition" type="text" />
+      <views>
+        <view name="Quantification_results" rowsource="pwiz.Skyline.Model.Databinding.Entities.Transition" sublist="Results!*" uimode="small_molecules">
+          <column name="Results!*.Value.PrecursorResult.PeptideResult.ResultFile.FileName" caption="File_Name" />
+          <column name="Precursor.Peptide.MoleculeName" caption="Molecule_Name" />
+          <column name="Precursor.Peptide.MoleculeFormula" caption="Molecule_Formula" />
+          <column name="Precursor.Peptide.Protein.Name" caption="Molecule_List_Name" />
+          <column name="Precursor.Peptide.ExplicitRetentionTime" caption="Explicit_Retention_Time" />
+          <column name="Results!*.Value.RetentionTime" caption="Retention_Time" />
+          <column name="Results!*.Value.Area" />
+          <column name="Results!*.Value.Height" />
+          <column name="Results!*.Value.MassErrorPPM" caption="PPM" />
+          <column name="Precursor.Adduct" caption="Precursor_Adduct" />
+          <column name="Precursor.IsotopeLabelType" caption="Isotope_Label_Type" />
+          <column name="IsotopeDistIndex" caption="Isotope_Dist_Index" />
+          <column name="Results!*.Value.Skewness" />
+          <column name="Results!*.Value.Kurtosis" />
+          <column name="Results!*.Value.Fwhm" />
+          <column name="Results!*.Value.Chromatogram.ChromatogramPrecursorMz" caption="Chromatogram_Precursor_M/Z" />
+          <column name="Results!*.Value.Chromatogram.RawData.NumberOfPoints" caption="Raw_Number_of_Points" />
+          <column name="Results!*.Value.Chromatogram.RawData.Times" caption="Raw_Times" />
+          <column name="Results!*.Value.Chromatogram.RawData.Intensities" caption="Raw_Intensities" />
+          <column name="Results!*.Value.StartTime" caption="Start_Time" />
+          <column name="Results!*.Value.EndTime" caption="End_Time" />
+        </view>
+      </views>
+    </data_settings>

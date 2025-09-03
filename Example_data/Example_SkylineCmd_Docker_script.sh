@@ -3,10 +3,10 @@
 
 
 docker run -it --rm \
-  -v path/to/folder/to/mount/in/docker:/data \
+  -v /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/Example_data:/data \
   proteowizard/pwiz-skyline-i-agree-to-the-vendor-licenses \
   wine SkylineCmd \
-  --new=test2.sky \
+  --new=template.sky \
   --full-scan-precursor-analyzer=centroided \
   --full-scan-acquisition-method=DDA \
   --full-scan-precursor-res=10 \
@@ -20,15 +20,5 @@ docker run -it --rm \
   --save
 
 
-docker run -it --rm \
-  -v path/to/folder/to/mount/in/docker:/data \
-  proteowizard/pwiz-skyline-i-agree-to-the-vendor-licenses \
-  wine SkylineCmd \
-  --dir=/data \
-  --in=test2.sky \
-  --import-file=/data/raw_file_to_analyze.d \
-  --import-transition-list=/data/Hilic_CIL_transitionList.csv \
-  --report-name="Molecule Transition Results" \ ## default report option in Skyline
-  --report-file=/data/output/raw_file_to_analyze.csv
   
 
