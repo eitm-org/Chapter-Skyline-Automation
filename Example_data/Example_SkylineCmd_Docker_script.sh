@@ -3,7 +3,7 @@
 
 
 docker run -it --rm \
-  -v /Users/kdabke/Documents/GitHub/Chapter-Skyline-Automation/Example_data:/data \
+  -v /path/to/cloned/repository/Chapter-Skyline-Automation/Example_data:/data \
   proteowizard/pwiz-skyline-i-agree-to-the-vendor-licenses \
   wine SkylineCmd \
   --new=template.sky \
