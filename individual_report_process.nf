@@ -4,6 +4,7 @@ process run_individual_ReportProcess
 {
 
     container 'kruttika39/xcms_newbuild:tinytex-install'
+    stageInMode = 'copy'
 
     input:
     path input_ch

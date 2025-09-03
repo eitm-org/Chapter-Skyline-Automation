@@ -28,6 +28,7 @@ process msconvertProcess
 {
     container params.containerTags['pwiz']
     publishDir "${params.outputDirectory}/mzml", mode: 'copy'
+    stageInMode = 'copy'
  
     input:
     path rawFile
