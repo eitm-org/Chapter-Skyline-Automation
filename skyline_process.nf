@@ -4,6 +4,7 @@ process run_SkylineProcess
 {
 
     container params.containerTags['pwiz']
+    stageInMode = 'copy'
 
     input:
     path sky_ch
