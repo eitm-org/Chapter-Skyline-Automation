@@ -43,7 +43,7 @@ process msconvertProcess
 
     """
     # symbolic link handling: make temp copy (fix from lehtiolab/nf-msconvert)    
-    ${rawFile.isDirectory() ?  "mv ${rawFile} tmpdir && cp -rL tmpdir ${rawFile}" : ''}
+    #${rawFile.isDirectory() ?  "mv ${rawFile} tmpdir && cp -rL tmpdir ${rawFile}" : ''}
  
     wine msconvert ${params.msconvertArgs} ${params.msconvertArgs2} ${params.msconvertArgs3} $rawFile
     """
